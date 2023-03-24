@@ -1,0 +1,1309 @@
+/* start standards */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    2. Remove default margin
+  */
+
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* vs shortcuts
+-CTRL+ SHIFT + N FOR OPENENING A NEW WINDOW
+-CTRL+ SHIFT + W FOR CLOSING THE NEW WINDOW
+-CTRL + P RECENT TABS
+-CTRL + SHIFT + P ALL
+-CTRL+ , OPEN SETTINGS
+-CTRL + K WITH CTRL + 0 FOLD ALL REGIONS
+-CTRL + K WITH CTRL + J OPEN ALL REGIONS
+-HOME
+-END
+-ALT + SHIFT + UP ARROW COPY ALL ABOVE LINES
+-ALT + SHIFT + DOWN ARROW COPY BELOW ABOVE LINES
+-ALT + SHIFT + RIGHT ARROW COPY FROM BEGINING UNTIL END LINES
+-ALT + SHIFT + LEFT ARROW COPY ALL ABOVE LINES
+-CTRL / COMMENT
+-CTRL + A SELECTS ALL
+-THEN CTRL + / UNDO COMMENT
+-CTRL + Z
+-CTRL + X DELETE LINE OR SELECTED TITLE
+-CTRL + C COPY
+-CTRL + S
+-CTRL + V PASTE
+-WINDOWS + V
+*/
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(11, 83, 84);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--blue-alt-color);
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+}
+
+:root {
+    --nav-bar-bg: #2f3237;
+    --main-transition: .5s;
+    --bg-hover: rgb(51, 112, 255, 10%);
+    --main-clr: #3370FF;
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(11, 83, 84);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 auto 0;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* Start  main title*/
+.text-holder {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.text-holder h1 {
+    letter-spacing: -2px;
+    color: darkgrey;
+    font-size: 55px;
+    margin: 0 0 -25px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.text-holder p {
+    font-weight: lighter;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    color: lightgreen;
+}
+
+/* End  main title*/
+/* End standards */
+/* start Nav Bar */
+.navbar {
+    background-color: #000080;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 11111111111111;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    min-height: 100px;
+}
+
+@media (max-width: 991px) {
+    .navbar .container {
+        flex-direction: row-reverse;
+        padding: 0 20px;
+    }
+}
+
+.navbar .logo img {
+    height: 100px;
+    object-fit: cover;
+}
+
+.navbar .container>ul {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 991px) {
+    .switch {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .switch {
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar .container>ul {
+        display: none;
+    }
+
+    .navbar .container .switch:hover+ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        left: 0;
+        background-color: rgb(0 0 0 / 90%);
+        z-index: 22222222;
+    }
+
+    .navbar .container>ul>li>a {
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
+
+.navbar .container>ul>li {
+    position: relative;
+}
+
+.navbar .container>ul>li>a {
+    position: relative;
+    padding: 15px 17px;
+    border-radius: 10px;
+    color: var(--main-clr);
+    font-weight: 700;
+    font-size: 18px;
+    transition: background-color var(--main-transition);
+}
+
+.navbar .container>ul>li>a:hover {
+    background-color: var(--bg-hover);
+}
+
+.navbar .container>ul>li:not(:last-child) a {
+    margin-right: 15px;
+}
+
+.drop__holder {
+    border: 1px solid #000080;
+    background-color: var(--nav-bar-bg);
+    width: 200px;
+    position: absolute;
+    right: 15px;
+    top: 77px;
+    display: none;
+    z-index: 22;
+}
+
+.drop__content {
+    min-width: 180px;
+}
+
+.drop__content li a {
+    padding: 15px;
+    display: block;
+    color: var(--main-clr);
+    font-weight: 700;
+    font-size: 16px;
+    transition: var(--main-transition);
+}
+
+.drop__content li a:hover {
+    padding-left: 25px;
+    background-color: rgba(0, 128, 128, 20%);
+}
+
+.drop__content li:not(:last-child) a {
+    border-bottom: 1px solid #000080;
+}
+
+.navbar .container>ul>li:last-of-type>a::before {
+    content: "";
+    position: absolute;
+    top: 38px;
+    right: 17px;
+    border-style: solid;
+    border-width: 20px;
+    border-color: transparent transparent var(--main-clr) transparent;
+    visibility: hidden;
+}
+
+.navbar .container>ul>li:last-of-type:hover .drop__holder {
+    display: block;
+}
+
+.navbar .container>ul>li:last-of-type:hover>a::before {
+    visibility: visible;
+}
+
+.search-bar {
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-hover);
+    box-shadow: 0px 5px 25px rgb(204, 204, 238, 30%);
+}
+
+.search-bar:hover input {
+    width: 200px;
+}
+
+.search-bar .serch {
+    color: var(--main-clr);
+}
+
+.search-bar input {
+    transition: width .8s;
+    width: 0;
+    caret-color: var(--main-clr);
+    border: none;
+    outline: none;
+    height: 100%;
+    background-color: transparent;
+}
+
+
+/* End Nav Bar */
+/* start Landing section */
+.landing {
+    height: 100vh;
+    background-image: url("../imgs/photo-1585503418537-88331351ad99.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 100% 30%;
+    position: relative;
+}
+
+.landing::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0 0 0 / 20%);
+}
+
+.landing .landing__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-90%, -50%);
+}
+
+.landing .landing__text h2 {
+    letter-spacing: 1px;
+    color: var(--main-clr);
+    margin-bottom: 10px;
+}
+
+.landing .landing__text p {
+    line-height: 1.8;
+    color: whitesmoke;
+    font-weight: 700;
+    margin-bottom: 10px;
+    width: 450px;
+    max-width: 100%;
+    font-size: 20px;
+}
+
+@media (max-width:767px) {
+    .landing .landing__text p {
+        font-size: 1.5vw;
+    }
+}
+
+.contactButton {
+    background: var(--main-clr);
+    color: white;
+    font-family: inherit;
+    padding: 0.55em;
+    padding-left: 1.0em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 17px;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 3.2em;
+    padding-right: 3.2em;
+}
+
+.iconButton {
+    margin-left: 40px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.7em;
+    width: 2.7em;
+    border-radius: 17px;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7a8cf3;
+    right: 0.2em;
+    transition: all 0.3s;
+}
+
+.contactButton:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em #5566c2;
+}
+
+.contactButton:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em #5566c2;
+}
+
+@media (max-width: 991px) {
+    .landing .landing__text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .landing .landing__text p {
+        line-height: 1.7;
+    }
+
+    .landing .landing__text button {
+        margin: 0 auto;
+    }
+}
+
+/* End Landing section */
+/* start services  */
+.services {
+    padding: 100px 0;
+}
+
+.services .services__holder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    row-gap: 125px;
+    column-gap: 40px;
+}
+
+.services .services__holder .service {
+    /* padding: 30px; */
+    box-shadow: 10px 10px 20px rgba(220 240 230 .2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+@media (max-width: 768px) {
+    .services .services__holder .service {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .services .services__holder .service i {
+        margin: 0 20px 100px 0;
+    }
+
+}
+
+.services .services__holder .service i {
+    font-weight: 900;
+    color: #10cab7;
+    background-color: rgba(16 202 183 / 20%);
+    padding: 15px;
+    border-radius: 50%;
+    transition: var(--main-transition);
+}
+
+.services .services__holder .service i:hover {
+    color: white;
+    background-color: #10cab7;
+}
+
+.services .services__holder .service span {
+    color: #10cab7;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.services .services__holder .service p {
+    line-height: 2;
+    letter-spacing: 1px;
+    color: whitesmoke;
+    font-weight: 600;
+}
+
+@media (max-width: 991px) {
+    .services .services__holder .service p {
+        text-align: center;
+    }
+}
+
+/* End services  */
+/* start Our Clients */
+.our__clients {
+    padding: 100px 0;
+}
+
+.our__clients .container .holder {
+    width: 900px;
+    margin: 0 auto;
+    border-radius: 200px;
+    background-color: #fefefe;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.our__clients .container .holder .item {
+    animation: logos 20s linear infinite;
+
+}
+
+.our__clients .container .holder:hover .item {
+    animation-play-state: paused;
+}
+
+@keyframes logos {
+    0% {
+        transform: translatex(0);
+    }
+
+    100% {
+        transform: translatex(-800px);
+    }
+}
+
+@media (max-width: 768px) {
+    .our__clients .container .holder {
+        width: 95%;
+        padding: 1rem;
+        border-radius: 100px;
+    }
+}
+
+/* End Our Clients */
+/* start Our Cars sec */
+.our__cars {
+    padding: 100px 0;
+}
+
+.our__cars .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    column-gap: 40px;
+    row-gap: 30px;
+    margin-top: 40px;
+}
+
+.our__cars .container .car__company-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-transform: capitalize;
+}
+
+.our__cars .container .car__company-card .title-type-fav,
+.our__cars .container .car__company-card .car__details,
+.our__cars .container .car__company-card .price_rent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.our__cars .container .car__company-card .title-type-fav {
+    padding-bottom: 30px;
+}
+
+.our__cars .container .car__company-card .title-type-fav .title__type h4 {
+    color: #1D2432;
+    font-weight: bold;
+}
+
+.our__cars .container .car__company-card .title-type-fav .title__type p {
+    color: #8A9DBA;
+}
+
+.our__cars .container .car__company-card .title-type-fav>i {
+    color: #8A9DBA;
+    height: 20px;
+    transition: var(--main-transition);
+}
+
+.our__cars .container .car__company-card .title-type-fav>i:hover {
+    color: rgb(196, 12, 12);
+}
+
+.our__cars .container .car__company-card .car-photo {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.our__cars .container .car__company-card .car-photo img {
+    height: 100%;
+    opacity: .65;
+    transition: var(--main-transition);
+}
+
+.our__cars .container .car__company-card:hover .car-photo img {
+    opacity: 1;
+}
+
+.our__cars .container .car__company-card:hover .car__details .detail {
+    color: #626f83;
+}
+
+.our__cars .container .car__company-card .car__details {
+    padding-top: 20px;
+    padding-bottom: 25px;
+}
+
+.our__cars .container .car__company-card .car__details .detail {
+    color: #8A9DBA;
+    font-weight: 600;
+    transition: var(--main-transition);
+}
+
+.our__cars .container .car__company-card .car__details .detail i {
+    margin-right: 3px;
+}
+
+.our__cars .container .car__company-card .price_rent {
+    align-items: center;
+}
+
+.our__cars .container .car__company-card .price_rent .price-details h4 {
+    font-weight: bold;
+    color: #1D2432;
+}
+
+.our__cars .container .car__company-card .price_rent .price-details h4 span {
+    color: #8A9DBA;
+    text-transform: none;
+}
+
+.our__cars .container .car__company-card .price_rent .price-details>span {
+    color: #8A9DBA;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: line-through;
+}
+
+.our__cars .container .car__company-card .price_rent>a {
+    background-color: rgb(61, 102, 220);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px 40px;
+    font-size: 20px;
+    transition: var(--main-transition);
+}
+
+.our__cars .container .car__company-card .price_rent>a:hover {
+    background-color: rgb(36, 67, 159);
+    color: rgba(255 255 255 / 60%);
+}
+
+/* End our cars sec */
+/* start car type */
+.your__style {
+    padding: 100px 0;
+}
+
+.your__style .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+/* .your__style .container .row{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+} */
+.your__style .container .card {
+    border-radius: 15px;
+    padding: 10rem 0 0;
+    background-color: #1E1F26;
+    background-repeat: no-repeat;
+    max-width: 35ch;
+    overflow: hidden;
+    transition: transform var(--main-transition);
+}
+
+.your__style .container .card:hover .card-text>* {
+    opacity: 1;
+}
+
+.your__style .container .card:first-child {
+    background-image: url(../imgs/pngtree-speeding-luxury-car-png-image_5615875-removebg-preview.png);
+}
+
+.your__style .container .card:nth-child(2) {
+    background-image: url(../imgs/image7-1.jpg);
+    background-position: 40% 45%;
+}
+
+.your__style .container .card:nth-child(3) {
+    background-image: url(../imgs/png-clipart-mercedes-benz-s-class-car-luxury-vehicle-mercedes-benz-slr-mclaren-private-car-compact-car-sedan-removebg-preview.png);
+}
+
+.your__style .container .card:nth-child(4) {
+    background-image: url(../imgs/20TGRNA1003.png);
+    background-position: 10% 0%;
+}
+
+.your__style .container .card:nth-child(5) {
+    background-image: url(../imgs/UD_L_0024.jpg);
+    background-position: 45% 50%;
+}
+
+.your__style .container .card:nth-child(6) {
+    background-image: url(../imgs/png-transparent-ram-trucks-ram-pickup-chrysler-dodge-pickup-truck-dodge-truck-car-pickup-truck-removebg-preview.png);
+    background-position: 80% 50%;
+}
+
+.your__style .container .card:hover {
+    transform: scale(1.04);
+}
+
+.card-text {
+    --bg-clr: hsl(120, 100%, 40%);
+    --padding: 2rem;
+    --a-clr: #111;
+    padding: var(--padding);
+    background-image: linear-gradient(rgba(0 0 0 / 0),
+            rgba(0 0 0 / 40%),
+            rgba(0 0 20 / 70%) 30%,
+            rgba(0 0 0 / 100%));
+    border-radius: 0 0 10px 10px;
+    transform: translatey(65%);
+    transition: transform calc(var(--main-transition) + .25s) ease;
+}
+
+.card-text>*:not(h2) {
+    opacity: 0;
+    transition: opacity var(--main-transition) linear;
+}
+
+.your__style .container .card:hover .card-text {
+    transform: translatey(0%);
+}
+
+.your__style .container .card .card-text h2 {
+    position: relative;
+    margin: 0 0 10px;
+    color: whitesmoke;
+    width: max-content;
+}
+
+.your__style .container .card .card-text h2::before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: calc(var(--padding) * -1);
+    background: rgb(70, 239, 134);
+    width: calc(100% + var(--padding));
+    height: 5px;
+    transform: scaleX(0);
+    transition: var(--main-transition);
+    transform-origin: left;
+}
+
+.your__style .container .card:hover .card-text h2::before {
+    transform: scaleX(1.075);
+}
+
+.your__style .container .card p {
+    color: rgba(255 255 255 / .75);
+    transition: var(--main-transition);
+}
+
+.your__style .container .card:hover p {
+    color: rgb(255 255 255 /.9);
+}
+
+.your__style .container .card a {
+    background-color: var(--bg-clr);
+    display: inline-block;
+    color: var(--a-clr);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: .3rem 2rem;
+    cursor: pointer;
+    margin: 10px 0 0;
+    border-radius: 15px;
+    transition: var(--main-transition);
+}
+
+.your__style .container .card a:hover,
+.your__style .container .card a:focus {
+    background-color: white;
+    color: var(--bg-clr);
+}
+
+/* End car type */
+/* start ECO Friendly Video*/
+.eco__video {
+    margin: 50px 0 0;
+    position: relative;
+}
+
+.eco__video::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgb(71, 78, 41, 50%);
+}
+
+.eco__video video {
+    width: 100%;
+}
+
+
+
+.eco__video .eco-text {
+    width: 100%;
+    color: whitesmoke;
+    z-index: 2;
+    background-color: rgb(71, 179, 183, .5);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 70px;
+    text-align: center;
+}
+@media (max-width: 545px) {
+    .eco__video .eco-text {
+        height: 100%;
+        padding: 20px;
+    }
+}
+@media (max-width:991px) {
+    .eco__video .eco-text p {
+        font-size: 10px;
+    }
+
+    .eco__video .eco-text h2 {
+        font-size: 10px;
+    }
+}
+
+.eco__video .eco-text h2 {
+    color: #13334c;
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.eco__video .eco-text p {
+    line-height: 1.85;
+    color: #ECEAE0;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+/*
+
+  Block
+
+  - Take Full Width If No Width
+  - Add Line Break
+  - Respect Padding, Margin, Width, Height
+
+  Inline
+
+  - Do Not Repsepct Width, Height
+  - Respect Padding And Margin [ Just right + Left ]
+  - Do Not Add Line Break
+  - Allow Elements Before And After It in The Same Line
+  - do not respect text-align: center
+  Inline-Block
+
+  - Allow Elements Before And After It in The Same Line
+  - Respect Padding, Margin, Width, Height
+
+*/
+.eco__video .eco-text a {
+    color: white;
+    padding: 15px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    line-height: 20.7px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #13334c;
+    display: inline-flex;
+    align-items: center;
+}
+
+.eco__video .eco-text a:hover {
+    color: #eee;
+    background-color: rgb(71, 78, 41, 50%);
+}
+
+/* ==================================================================================== */
+.eco__video .eco-text a i {
+    font-weight: 900;
+    font-family: var(--fa-style-family-classic);
+    margin-left: 10px;
+    color: #ccc;
+    text-align: center;
+}
+
+.eco__video .eco-text a:hover i {
+    animation: right-arrow var(--main-transition) infinite ease-in-out;
+}
+
+@keyframes right-arrow {
+
+    0%,
+    100% {
+        transform: translateX(0px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+/* End ECO Friendly Video*/
+/* start rent now */
+.rent_now {
+    padding-top: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: rent-background 15s alternate;
+    animation-iteration-count: infinite;
+    min-height: 100vh;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.rent-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.rent-form form {
+    width: 900px;
+    padding: 25px;
+    background-color: white;
+}
+
+.rent_now .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.rent_now .row .col {
+    flex: 1 1 250px;
+}
+
+.rent_now .row .col h3 {
+    font-size: 20px;
+    color: #333;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.info_input {
+    margin: 15px 0;
+}
+
+.info_input label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: rgb(58, 11, 11);
+}
+
+.info_input input {
+    outline-color: transparent;
+    border: 1px solid #a29796;
+    padding: 10px 15px;
+    width: 100%;
+    transition: var(--main-transition);
+    caret-color: #11ba57;
+    color: #11ba57;
+    font-size: 15px;
+}
+
+.email_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.email_flex span {
+    color: rgb(203, 203, 15);
+}
+
+.email_flex span span {
+    color: orange;
+
+}
+
+.info_input input:focus {
+    border: 2px solid #222;
+}
+
+.flex-input {
+    display: flex;
+    gap: 10px;
+}
+
+.flex-input .info_input {
+    margin-top: 10px;
+}
+
+.info_input img {
+    height: 35px;
+    filter: drop-shadow(0 0 2px #000);
+    margin-top: 10px;
+}
+
+
+/* custom select */
+.flex-input .info_input select.carselection {
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: white;
+    text-transform: capitalize;
+    border-radius: 5px;
+    border: 1px solid #a29796;
+    cursor: pointer;
+    height: 43px;
+    padding: 10px 3.125rem 9px 15px;
+}
+
+.select__wrapper {
+    position: relative;
+}
+
+.custom-arrow {
+    width: 1.5rem;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background-color: #a29796;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.custom-arrow::after,
+.custom-arrow::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    --arrow-size: .5em
+}
+
+.custom-arrow::before {
+    border-top: var(--arrow-size) solid #ddd;
+    border-left: var(--arrow-size) solid transparent;
+    border-right: var(--arrow-size) solid transparent;
+    border-bottom: var(--arrow-size) solid transparent;
+    bottom: 0;
+}
+
+.custom-arrow::after {
+    border-top: var(--arrow-size) solid transparent;
+    border-left: var(--arrow-size) solid transparent;
+    border-right: var(--arrow-size) solid transparent;
+    border-bottom: var(--arrow-size) solid #ddd;
+    top: 0;
+}
+
+.flex-input .info_input select.carselection:is(:focus, :hover) {
+    outline: none;
+    border: 2px solid #000;
+}
+
+.flex-input .info_input select.carselection option {
+    background-color: #11ba57;
+    color: #dddddd;
+}
+
+
+form .submit-proceed {
+    width: 100%;
+    padding: 13px 18px;
+    background-color: #11ba57;
+    color: white;
+    font-weight: 600;
+    font-size: 25px;
+    outline-color: transparent;
+    border: none;
+    margin-top: 15px;
+    transition: var(--main-transition);
+}
+
+form .submit-proceed:is(:focus, :hover) {
+    background-color: #4eba7b;
+}
+
+/* margin-bottom:20px ;
+display: flex;
+flex-direction: column;
+gap: 10px; */
+
+@keyframes rent-background {
+    0% {
+        background-image: url(../imgs/carsharing-car-rental-auto-car-parking-vw.jpg);
+    }
+
+    25% {
+        background-image: url(../imgs/Charging-electric-car.format-jpeg.jpg);
+    }
+
+    50% {
+        background-image: url(../imgs/photo-1616703040409-c7eb15549a41.png);
+    }
+
+    75% {
+        background-image: url(../imgs/istockphoto-1324501871-170667a.jpg);
+    }
+
+    100% {
+        background-image: url(../imgs/shutterstock_1178770216-scaled.jpg);
+    }
+}
+
+/* end rent now */
+/* start footer */
+footer {
+    padding: 50px 10px;
+    background-color: #000080;
+    color: rgb(196, 198, 199);
+    font-weight: 700;
+    text-transform: capitalize;
+}
+@media (max-width: 768px) {
+    footer{
+    text-align: center;
+    }
+}
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    place-content: center;
+}
+
+footer .container .col span {
+    display: block;
+    transition: var(--main-transition);
+}
+
+footer h3,
+footer label {
+    font-weight: bold;
+color: white;
+    font-size: 22px;
+}
+
+footer .container .col:first-child span:hover,
+footer .container .col:nth-child(2) span:hover,
+footer .container .col:nth-child(3) span:nth-of-type(1):hover,
+footer .container .col:nth-child(3) address:hover {
+    color: rgb(149, 151, 152);
+    transform: translateX(-15px);
+}
+
+
+footer .container .col>* {
+    margin-bottom: 15px;
+}
+
+footer .container .col i {
+    margin-left: 10px;
+}
+
+footer .container .col address {
+    transition: var(--main-transition);
+}
+
+.company_mail {
+    color: goldenrod;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+
+footer .container .col:not(:last-child) ul{
+margin-top: 15px;
+}
+
+footer .container .col:not(:last-child) ul li span {
+    margin-bottom: 15px;
+}
+
+footer .container .col input[type="checkbox"] {
+    position: absolute;
+    left: -5000px;
+}
+footer .container .col:not(:last-child) ul li{
+transform: translateX(100%);
+opacity: 0;
+transition: .5s cubic-bezier(0.850, -0.015, 0.565, 1.055) ;
+transition-property: opacity, transform;
+transition-delay: calc(0.025s * (var(--length) - (var(--sequence) + 1)));
+}
+footer .container .col label{
+cursor: pointer;
+}
+footer .container .col input[type="checkbox"]:checked + label{
+    color: rosybrown;
+}
+footer .container .col input[type="checkbox"]:checked ~ ul li{
+opacity: 1;
+transform: translateX(0%);
+transition-delay: calc(0.055s * var(--sequence));
+}
+footer .container .col:last-child ul {
+    display: flex;
+    align-items: center;
+    margin: 25px 0 0 0;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+footer .container .col:last-child ul li a {
+    background-color: goldenrod;
+    padding: 20px 22.5px;
+    border-radius: 50%;
+    color: white;
+    transition: var(--main-transition);
+    transition-property: color,background-color;
+}
+footer .container .col:last-child ul li a:hover{
+color: goldenrod;
+background-color: white;
+}
+footer .container .col:last-child ul li a i {
+    margin: 0 auto;
+    font-size: 25px;
+}
+/* end footer */
