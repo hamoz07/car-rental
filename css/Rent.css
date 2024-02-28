@@ -25,11 +25,11 @@ body {
 
 /*
     Typographic tweaks!
-    4. Add accessible line-height
+    4. Add accessible ne-height
     5. Improve text rendering
   */
 body {
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antiaased;
 }
 
 /*
@@ -77,8 +77,8 @@ h6 {
 -CTRL + K WITH CTRL + J OPEN ALL REGIONS
 -HOME
 -END
--ALT + SHIFT + UP ARROW COPY ALL ABOVE LINES
--ALT + SHIFT + DOWN ARROW COPY BELOW ABOVE LINES
+-ALT + SHIFT + UP ARROW COPY ALL ABOVE NES
+-ALT + SHIFT + DOWN ARROW COPY BELOW ABOVE NES
 -ALT + SHIFT + RIGHT ARROW COPY FROM BEGINING UNTIL END LINES
 -ALT + SHIFT + LEFT ARROW COPY ALL ABOVE LINES
 -CTRL / COMMENT
@@ -319,12 +319,12 @@ body {
     visibility: hidden;
 }
 
-.navbar .container>ul>li:last-of-type:hover .drop__holder {
+.navbar .container>ul>:last-of-type:hover .drop__holder {
     display: block;
 }
 
-.navbar .container>ul>li:last-of-type:hover>a::before {
-    visibility: visible;
+.navbar .container>ul>:last-of-type:hover>a::before {
+    visibity: visible;
 }
 
 .search-bar {
@@ -333,7 +333,7 @@ body {
     cursor: pointer;
     padding: 10px 20px;
     display: flex;
-    align-items: center;
+    agn-items: center;
     background-color: var(--bg-hover);
     box-shadow: 0px 5px 25px rgb(204, 204, 238, 30%);
 }
@@ -1260,10 +1260,6 @@ footer .container .col:not(:last-child) ul li span {
     margin-bottom: 15px;
 }
 
-footer .container .col input[type="checkbox"] {
-    position: absolute;
-    left: -5000px;
-}
 footer .container .col:not(:last-child) ul li{
 transition: .5s cubic-bezier(0.850, -0.015, 0.565, 1.055) ;
 transition-property: opacity, transform;
@@ -1271,14 +1267,6 @@ transition-delay: calc(0.025s * (var(--length) - (var(--sequence) + 1)));
 }
 footer .container .col label{
 cursor: pointer;
-}
-footer .container .col input[type="checkbox"]:checked + label{
-    color: rosybrown;
-}
-footer .container .col input[type="checkbox"]:checked ~ ul li{
-opacity: 1;
-transform: translateX(0%);
-transition-delay: calc(0.055s * var(--sequence));
 }
 footer .container .col:last-child ul {
     display: flex;
