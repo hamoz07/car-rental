@@ -1265,8 +1265,6 @@ footer .container .col input[type="checkbox"] {
     left: -5000px;
 }
 footer .container .col:not(:last-child) ul li{
-transform: translateX(100%);
-opacity: 0;
 transition: .5s cubic-bezier(0.850, -0.015, 0.565, 1.055) ;
 transition-property: opacity, transform;
 transition-delay: calc(0.025s * (var(--length) - (var(--sequence) + 1)));
