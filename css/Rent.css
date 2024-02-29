@@ -8,6 +8,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
 }
 
 /*
@@ -25,11 +26,11 @@ body {
 
 /*
     Typographic tweaks!
-    4. Add accessible ne-height
+    4. Add accessible line-height
     5. Improve text rendering
   */
 body {
-    -webkit-font-smoothing: antiaased;
+    -webkit-font-smoothing: antialiased;
 }
 
 /*
@@ -77,8 +78,8 @@ h6 {
 -CTRL + K WITH CTRL + J OPEN ALL REGIONS
 -HOME
 -END
--ALT + SHIFT + UP ARROW COPY ALL ABOVE NES
--ALT + SHIFT + DOWN ARROW COPY BELOW ABOVE NES
+-ALT + SHIFT + UP ARROW COPY ALL ABOVE LINES
+-ALT + SHIFT + DOWN ARROW COPY BELOW ABOVE LINES
 -ALT + SHIFT + RIGHT ARROW COPY FROM BEGINING UNTIL END LINES
 -ALT + SHIFT + LEFT ARROW COPY ALL ABOVE LINES
 -CTRL / COMMENT
@@ -206,6 +207,33 @@ body {
         flex-direction: row-reverse;
         padding: 0 20px;
     }
+
+    .navbar .container>ul {
+        display: none;
+        /* Hide main menu on mobile */
+    }
+
+    .switch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+    }
+
+    .navbar .container .switch:hover+ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        /* Ensure full width on mobile */
+        left: 0;
+        background-color: rgb(0 0 0 / 90%);
+        z-index: 22222222;
+        overflow-y: auto;
+        /* Enable scrolling for long mobile menus */
+        /* Consider adding a max-height to the sub-menu if needed */
+    }
 }
 
 .navbar .logo img {
@@ -232,9 +260,6 @@ body {
         align-items: center;
     }
 
-    .navbar .container>ul {
-        display: none;
-    }
 
     .navbar .container .switch:hover+ul {
         display: flex;
@@ -319,12 +344,12 @@ body {
     visibility: hidden;
 }
 
-.navbar .container>ul>:last-of-type:hover .drop__holder {
+.navbar .container>ul>li:last-of-type:hover .drop__holder {
     display: block;
 }
 
-.navbar .container>ul>:last-of-type:hover>a::before {
-    visibity: visible;
+.navbar .container>ul>li:last-of-type:hover>a::before {
+    visibility: visible;
 }
 
 .search-bar {
@@ -333,7 +358,7 @@ body {
     cursor: pointer;
     padding: 10px 20px;
     display: flex;
-    agn-items: center;
+    align-items: center;
     background-color: var(--bg-hover);
     box-shadow: 0px 5px 25px rgb(204, 204, 238, 30%);
 }
@@ -356,6 +381,41 @@ body {
     background-color: transparent;
 }
 
+
+/* Add this CSS for mobile view */
+@media (max-width: 991px) {
+
+    .navbar-items {
+        width: 100%;
+        /* Ensure the items take full width */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar .container>ul {
+        display: none;
+        /* Hide the menu items by default */
+    }
+
+    .navbar .container .switch:hover+ul {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        left: 0;
+        background-color: rgb(0 0 0 / 90%);
+        z-index: 22222222;
+    }
+
+    .navbar .container>ul>li>a {
+        padding: 10px;
+        margin-top: 10px;
+        text-align: center;
+        /* Center text */
+    }
+}
 
 /* End Nav Bar */
 /* start Landing section */
@@ -395,14 +455,13 @@ body {
     color: whitesmoke;
     font-weight: 700;
     margin-bottom: 10px;
-    width: 450px;
     max-width: 100%;
     font-size: 20px;
 }
 
 @media (max-width:767px) {
     .landing .landing__text p {
-        font-size: 1.5vw;
+        font-size: 3.5vw;
     }
 }
 
@@ -476,7 +535,7 @@ body {
 
 .services .services__holder {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     row-gap: 125px;
     column-gap: 40px;
 }
@@ -884,12 +943,14 @@ body {
     padding: 70px;
     text-align: center;
 }
+
 @media (max-width: 545px) {
     .eco__video .eco-text {
         height: 100%;
         padding: 20px;
     }
 }
+
 @media (max-width:991px) {
     .eco__video .eco-text p {
         font-size: 10px;
@@ -950,6 +1011,13 @@ body {
     align-items: center;
 }
 
+@media(max-width: 768px) {
+    .eco__video .eco-text a {
+        padding: 1px;
+    }
+
+}
+
 .eco__video .eco-text a:hover {
     color: #eee;
     background-color: rgb(71, 78, 41, 50%);
@@ -998,7 +1066,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 25px;
-  width: 100%;
+    width: 100%;
 }
 
 .rent-form form {
@@ -1164,11 +1232,6 @@ form .submit-proceed:is(:focus, :hover) {
     background-color: #4eba7b;
 }
 
-/* margin-bottom:20px ;
-display: flex;
-flex-direction: column;
-gap: 10px; */
-
 @keyframes rent-background {
     0% {
         background-image: url(../imgs/carsharing-car-rental-auto-car-parking-vw.jpg);
@@ -1200,11 +1263,13 @@ footer {
     font-weight: 700;
     text-transform: capitalize;
 }
+
 @media (max-width: 768px) {
-    footer{
-    text-align: center;
+    footer {
+        text-align: center;
     }
 }
+
 footer .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1220,7 +1285,7 @@ footer .container .col span {
 footer h3,
 footer label {
     font-weight: bold;
-color: white;
+    color: white;
     font-size: 22px;
 }
 
@@ -1252,22 +1317,26 @@ footer .container .col address {
 }
 
 
-footer .container .col:not(:last-child) ul{
-margin-top: 15px;
+footer .container .col:not(:last-child) ul {
+    margin-top: 15px;
 }
 
 footer .container .col:not(:last-child) ul li span {
     margin-bottom: 15px;
 }
 
-footer .container .col:not(:last-child) ul li{
-transition: .5s cubic-bezier(0.850, -0.015, 0.565, 1.055) ;
-transition-property: opacity, transform;
-transition-delay: calc(0.025s * (var(--length) - (var(--sequence) + 1)));
+
+footer .container .col:not(:last-child) ul li {
+    transition: .5s cubic-bezier(0.850, -0.015, 0.565, 1.055);
+    transition-property: opacity, transform;
+    transition-delay: calc(0.025s * (var(--length) - (var(--sequence) + 1)));
 }
-footer .container .col label{
-cursor: pointer;
+
+footer .container .col label {
+    cursor: pointer;
 }
+
+
 footer .container .col:last-child ul {
     display: flex;
     align-items: center;
@@ -1283,14 +1352,17 @@ footer .container .col:last-child ul li a {
     border-radius: 50%;
     color: white;
     transition: var(--main-transition);
-    transition-property: color,background-color;
+    transition-property: color, background-color;
 }
-footer .container .col:last-child ul li a:hover{
-color: goldenrod;
-background-color: white;
+
+footer .container .col:last-child ul li a:hover {
+    color: goldenrod;
+    background-color: white;
 }
+
 footer .container .col:last-child ul li a i {
     margin: 0 auto;
     font-size: 25px;
 }
+
 /* end footer */
